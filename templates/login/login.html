@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+ <title>Login Page</title>
+<style>
+    /* Full-width input fields */
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.signupbtn {
+    float: left;
+    width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+        <a href="/app/">Home</a> <br>
+        <a href="/register/">Register</a>
+        Click here if you are not registered »
+        
+<h3>Log In</h3>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<form action="" method="post">{% csrf_token %}
+  <div class="container">
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter username" name="username">
+
+
+      <label><b>Password</b></label>
+    <input type="password" placeholder="Password" name="password">
+
+    <div class="clearfix">
+      <button type="submit" class="signupbtn">Login</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>
