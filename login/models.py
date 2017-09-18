@@ -1,22 +1,14 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
-
-class UserProfilename(models.Model):
-    name = models.OneToOneField(User, primary_key=True)
-    email = models.EmailField(max_length=50)
-    contact = models.CharField(max_length=20)
-    skill = models.CharField(max_length=100)
-
-    def __unicode__(self):
-        return self.name
-
-
-class Message(models.Model):
-    user = models.CharField(max_length=20)
-    message = models.TextField()
-    timestamp = models.DateTimeField()
+class UserComplaint(models.Model):
+    user = models.ForeignKey(User, null=True, blank=True)
+    complaint = models.CharField(max_length=200)
+    location = models.CharField(max_length=200, default="Null")
+    Mobile_number = models.IntegerField(max_length=10)
+    pub_date = models.DateTimeField('date published')
 
     def __str__(self):
-        return self.user
+        return self.location

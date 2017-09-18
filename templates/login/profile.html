@@ -55,11 +55,16 @@
 
 <h1>Profile</h1>
 <h2><a href="{% url 'login:logout' %}">Logout</a> </h2>
-<form action="/upload/" method="post">{% csrf_token %}
+{{ msg }}
+<form action="/profile/" method="post">{% csrf_token %}
     
 
-        <input type="file" name="csv_file" />
-        <input type="submit" value="Upload" />
+    <input type="text" name="complaint" placeholder="Enter your complain here">
+    <input type="text" name="location" placeholder="your location/Address" >
+    <input type="text" name="mobile_number" placeholder="Contact">
+    <!-- <input type="text" name="pub_date" > -->
+    <br><br>
+    <input class="waves-effect waves-light btn" type="submit" value="Submit">
     
 </form>
 <!-- {{ profile }} -->

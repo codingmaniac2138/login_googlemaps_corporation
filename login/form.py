@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth import authenticate, login, get_user_model, logout
-from .models import UserProfilename, Message
 from django.contrib.auth.models import User
 
 
